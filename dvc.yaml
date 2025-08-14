@@ -1,0 +1,42 @@
+stages:
+  data_ingestion:
+    cmd: python main.py
+    deps:
+      - src
+      - config
+      - params.yaml
+    outs:
+      - artifacts/data_ingestion:
+          persist: true
+    metrics:
+      - metrics/data_ingestion.json:
+          cache: false
+
+  prepare_base_model:
+    cmd: python main.py
+    deps:
+      - src
+      - config
+      - params.yaml
+      - artifacts/data_ingestion
+    outs:
+      - artifacts/prepare_base_model:
+          persist: true
+    metrics:
+      - metrics/prepare_base_model.json:
+          cache: false
+
+  model_trainer:
+    cmd: python main.py
+    deps:
+      - src
+      - config
+      - params.yaml
+      - artifacts/data_ingestion
+      - artifacts/prepare_base_model
+    outs:
+      - artifacts/training:
+          persist: true
+    metrics:
+      - metrics/model_trainer.json:
+          cache: false
