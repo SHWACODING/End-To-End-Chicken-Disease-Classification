@@ -87,7 +87,7 @@ open up you local host and port
 
 ## 3. Create ECR repo to store/save docker image
 
-- Save the URI: 566373416292.dkr.ecr.us-east-1.amazonaws.com/chicken
+- Save the URI: 047719640457.dkr.ecr.us-east-1.amazonaws.com/cnn
 
 ## 4. Create EC2 machine (Ubuntu)
 
@@ -101,7 +101,7 @@ open up you local host and port
 
  #required
 
- curl -fsSL <https://get.docker.com> -o get-docker.sh
+ curl -fsSL https://get.docker.com -o get-docker.sh
 
  sudo sh get-docker.sh
 
@@ -115,9 +115,9 @@ setting>actions>runner>new self hosted runner> choose os> then run command one b
 
 ## 7. Setup github secrets
 
-    AWS_ACCESS_KEY_ID=
+    AWS_ACCESS_KEY_ID =
 
-    AWS_SECRET_ACCESS_KEY=
+    AWS_SECRET_ACCESS_KEY =
 
     AWS_REGION = us-east-1
 
